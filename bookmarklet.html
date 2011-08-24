@@ -1,11 +1,21 @@
+<!DOCTYPE html> <!-- The new doctype -->
 <html>
 <head>
-<title>Mediamesis Classifier Bookmarklet</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Mediamesis Classifier Bookmarklet</title>
 </head>
 <body>
-<h1>Mediamesis Classifier Bookmarklet</h1>
-<p>Drag the link below up to your toolbar to create your bookmarklet. Then, whenever you wish to classify a url, just click on the bookmarklet to see how the page you're on scores!</p>
-<p><a href="javascript:location.href='http://www.mediamesis.net/classifiers/uclassify/uclassify.php?cmd=topics&url='+encodeURIComponent(location.href)"
-onclick="window.alert('Drag and Drop this onto Your Toolbar.');"  title="uClassify Me!">uClassify Me!</a></p>
+<header>
+	<h1>Mediamesis Classifier Bookmarklet</h1>
+</header>
+
+<section id="description">
+	<p>Drag the link below up to your toolbar to create your bookmarklet. Then, whenever you wish to classify a url, just click on the bookmarklet to see how the page you're on scores!</p>
+</section>
+
+<section id="bookmarklet">
+	<p><a href="javascript:location.href='http://www.mediamesis.net/classifiers/uclassify/uclassify.php?cmd=topics&url='+encodeURIComponent(location.href)"
+			onclick="window.alert('Drag and Drop this onto Your Toolbar.');"  title="uClassify Me!">uClassify Me!</a></p>
+</section>
 </body>
 </html>
