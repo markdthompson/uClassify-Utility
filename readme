@@ -1,0 +1,12 @@
+Contact:
+
+Smith & Thompson, Inc.
+http://www.smithandthompson.net
+
+Author:
+mark@smithandthompson.net
+
+Description:
+
+A quick sketch bookmarklet that uses the uClassify free text classifier web service ( http://www.uclassify.com/ ) so you can classify web pages as you view them. 
+Still rough, it just spits out the xml results. At some point I'll add a visualization and streamline the usability.
