@@ -12,4 +12,4 @@ A quick sketch bookmarklet that uses the uClassify free text classifier web serv
 
 Using it:
 
-Download the source, pop open uclassify.php and swap in your URL API read key and it should start right up.
+Download the source, pop open uclassify.php and swap in your URL API read key. Also change the server path to your uclassify.php file in the bookmarklet link tag in bookmarklet.html.
