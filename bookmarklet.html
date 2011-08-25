@@ -1,9 +1,19 @@
-<!DOCTYPE html> <!-- The new doctype -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta charset="utf-8">
+	
 	<title>uClassify Classifier Bookmarklet</title>
 	
+	<!-- meta tags -->
+	<meta name="keywords" content="text, classifier, uClassify, bookmarklet">
+	<meta name="description" content="Demo page for Smith & Thompson's Classifier Bookmarklet">
+
+	<!-- stylesheets -->
+	
+	<!-- javascript -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 	<script>
 		var init = function(){
 			var oBm = document.getElementById('bookmarklet');
@@ -15,10 +25,21 @@
 				document.getElementById('instructions').innerHTML = '';
 			},true);
 		}
-		
 		window.onload = init;
-
 	</script>
+	
+	<!-- Internet Explorer HTML5 enabling script: -->
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<style type="text/css">
+
+			.clear {
+				zoom: 1;
+				display: block;
+			}
+
+		</style>
+	<![endif]-->
 </head>
 <body>
 <header>
