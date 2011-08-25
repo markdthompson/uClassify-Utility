@@ -16,7 +16,7 @@ $cmd = $_GET['cmd'];
 $url = $_GET['url'];
 
 $baseUrl = 'http://uclassify.com/browse/uClassify/';
-$readkey = 'YOUR_READ_API_KEY_HERE'; // <- insert your key here
+$readkey = 'YOUR_READ_API_KEY_HERE'; // <- your read key here
 $removeHTML = 1;
 $encoding = 'xml';
 $data = '';
