@@ -1,3 +1,16 @@
+uClassify Web Page Classifier Bookmarklet
+
+Description:
+
+A quick sketch bookmarklet that uses the uClassify free text classifier web service ( http://www.uclassify.com/ ) so you can classify web pages as you view them. Still rough, it just spits out the xml results. At some point I'll add a visualization and streamline the usability.
+
+Demo:
+http://www.mediamesis.net/classifiers/uclassify/bookmarklet.html
+
+Using it:
+
+Download the source, pop open uclassify.php and swap in your URL API read key. Also change the server path to your uclassify.php file in the bookmarklet link tag in bookmarklet.html.
+
 Contact:
 
 Smith & Thompson, Inc.
@@ -5,14 +18,3 @@ http://www.smithandthompson.net
 
 Author:
 mark@smithandthompson.net
-
-Description:
-
-A quick sketch bookmarklet that uses the uClassify free text classifier web service ( http://www.uclassify.com/ ) so you can classify web pages as you view them. Still rough, it just spits out the xml results. At some point I'll add a visualization and streamline the usability.
-
-Demo
-http://www.mediamesis.net/classifiers/uclassify/bookmarklet.html
-
-Using it:
-
-Download the source, pop open uclassify.php and swap in your URL API read key. Also change the server path to your uclassify.php file in the bookmarklet link tag in bookmarklet.html.
