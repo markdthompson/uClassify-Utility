@@ -19,6 +19,7 @@ class uClassify {
 	private $readkey = '***YOUR_READ_KEY***'; // <- your read key here
 	private $removeHTML = 1;
 	private $encoding = 'json';
+	private $version = '1.01';
 	private $classifier = "topics"; // default to topics command
 	private $classifier_whitelist = array("topics");
 	
@@ -82,11 +83,11 @@ class uClassify {
 		return $this->classifier;	
 	}
 	
-	// classify it & return the scored classification
+	// classify a URL & return the scored classification
 	public function classifyUrl($url) {
 		// assemble the query string
 		$qs = $this->baseUrl.ucfirst($this->classifier).'/ClassifyUrl/?readkey='.urlencode($this->readkey).
-				'&url='.urlencode($url).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding;
+				'&url='.urlencode($url).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding."&version=".$this->version;
 		
 		// instantiate cUrl
 		$curl = curl_init($qs);
@@ -100,6 +101,27 @@ class uClassify {
 		
 		curl_close($curl);
 		
+		return $data;
+	}
+	
+	// classify it & return the scored classification
+	public function classifyText($txt) {
+		// assemble the query string
+		$qs = $this->baseUrl.ucfirst($this->classifier).'/ClassifyText/?readkey='.urlencode($this->readkey).
+					'&text='.urlencode($url).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding."&version=".$this->version;
+	
+		// instantiate cUrl
+		$curl = curl_init($qs);
+	
+		// set options
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_HEADER, 0);
+	
+		// execute, close & return result
+		$data = curl_exec($curl);
+	
+		curl_close($curl);
+	
 		return $data;
 	}
 }
