@@ -6,7 +6,7 @@
 * see http://uclassify.com/UrlApiDocumentation.aspx 
 *
 * Be sure to sign up with uClassify to get your read key 
-* and replace 'YOUR_READ_API_KEY_HERE' with your own read key.
+* and replace '***YOUR_READ_KEY***' with your own read key.
 *
 * @author Mark Thompson <mark@smithandthompson.net>
 *
@@ -16,7 +16,7 @@ class uClassify {
 	
 	// private properties
 	private $baseUrl = 'http://uclassify.com/browse/uClassify/';
-	private $readkey = 'vhSVEuFSAZXrYxkCj3oxXN0TI+E='; // <- your read key here
+	private $readkey = '***YOUR_READ_KEY***'; // <- your read key here
 	private $removeHTML = 1;
 	private $encoding = 'json';
 	private $classifier = "topics"; // default to topics command
@@ -77,11 +77,12 @@ class uClassify {
 		}
 	}
 	
+	// get the current classifier
 	public function getClassifier(){
 		return $this->classifier;	
 	}
 	
-	// Public methods
+	// classify it & return the scored classification
 	public function classifyUrl($url) {
 		// assemble the query string
 		$qs = $this->baseUrl.ucfirst($this->classifier).'/ClassifyUrl/?readkey='.urlencode($this->readkey).

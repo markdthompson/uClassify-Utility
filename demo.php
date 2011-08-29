@@ -1,4 +1,7 @@
 <?php
+//error_reporting(E_ALL);
+//ini_set('display_errors','On');
+
 // which classifier are we using (currently only accepts 'topics')
 $classifier = $_GET['clsfr'];
 
@@ -9,7 +12,7 @@ $url = $_GET['url'];
 $json = '';
 
 // instantiate or uClassify wrapper class
-$uc = new uClassify();
+$uc = new uclassify();
 
 // set the classifier
 $err = $uc->setClassifier($classifier);
@@ -52,14 +55,15 @@ function __autoload($class_name) {
 	<section id="content">
 	
 	<?php if(!empty($json)){?>
+	
 	<section><p>URL: <a href="<?php echo $url; ?>"><?php echo $url; ?></a></p></section>
 	
 	<section>
 	<script>
 		var data = <?php echo $json; ?>;
 
-		// Creates canvas 640 � 480 at 0, 0
-		var r = Raphael(0, 100, 640, 480);
+		// Creates canvas 540 � 480 at 0, 0
+		var r = Raphael(0, 150, 640, 480);
 		// Creates pie chart at with center at 320, 200,
 		// radius 100 and data from the classification
 		
@@ -72,7 +76,7 @@ function __autoload($class_name) {
 			i++;
 		}
 		
-		r.g.piechart(240, 120, 100, set, {legend: legend, legendpos: "west"});
+		r.g.piechart(240, 100, 100, set, {legend: legend, legendpos: "west"});
 	</script>
 	</section>
 	
