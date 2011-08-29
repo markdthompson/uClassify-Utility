@@ -21,7 +21,7 @@ class uClassify {
 	private $encoding = 'json';
 	private $version = '1.01';
 	private $classifier = "topics"; // default to topics command
-	private $classifier_whitelist = array("topics");
+	private $classifier_whitelist = array("topics","text language","sentiment","mood","ageanalyzer","tonality");
 	
 	// Class methods
     public function __construct()  {  
@@ -104,7 +104,7 @@ class uClassify {
 		return $data;
 	}
 	
-	// classify it & return the scored classification
+	// classify some text & return the scored classification
 	public function classifyText($txt) {
 		// assemble the query string
 		$qs = $this->baseUrl.ucfirst($this->classifier).'/ClassifyText/?readkey='.urlencode($this->readkey).
