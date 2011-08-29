@@ -1,21 +1,27 @@
 <?php
-function __autoload($class_name) {
-    include $class_name . '.php';
-}
+// which classifier are we using (currently only accepts 'topics')
+$classifier = $_GET['clsfr'];
 
-// which classifier are we using (currently only accepts 'topics'
-$classifier = 'topics';
+// the url to classify
+$url = $_GET['url'];
+
 // initialize json variable to empty for error checking
 $json = '';
 
+// instantiate or uClassify wrapper class
 $uc = new uClassify();
+
+// set the classifier
 $err = $uc->setClassifier($classifier);
 
-$url = "http://www.nytimes.com/2011/08/29/us/29hurricane.html?partner=rss&emc=rss";
+// if no errors, classify the url and return json to visualize
 if(!$err){
 	$json = $uc->classifyUrl($url);
 }
 
+function __autoload($class_name) {
+	include $class_name . '.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +34,14 @@ if(!$err){
 	<meta name="keywords" content="uClassify, classifier, classification, topics, text">
 	<meta name="description" content="uCLassify classification results for user supplied uri">
 	
-	<!-- javascript -->
+	<!-- g.raphael javascript charting library -->
 	<script src="./scripts/raphael-min.js"></script>
 	<script src="./scripts/g.raphael-min.js"></script>
 	<script src="./scripts/g.pie-min.js"></script>
+	
+	<style>
+		body {font-family: Arial, Helvetica, sans-serif;}
+	</style>
 	
 </head>
 <body>
@@ -42,14 +52,14 @@ if(!$err){
 	<section id="content">
 	
 	<?php if(!empty($json)){?>
+	<section><p>URL: <a href="<?php echo $url; ?>"><?php echo $url; ?></a></p></section>
 	
-	<p>URL: <a href="<?php echo $url; ?>"><?php echo "{$url}"; ?></a></p>
-	
+	<section>
 	<script>
 		var data = <?php echo $json; ?>;
 
 		// Creates canvas 640 � 480 at 0, 0
-		var r = Raphael(0, 0, 640, 480);
+		var r = Raphael(0, 100, 640, 480);
 		// Creates pie chart at with center at 320, 200,
 		// radius 100 and data from the classification
 		
@@ -62,8 +72,10 @@ if(!$err){
 			i++;
 		}
 		
-		r.g.piechart(240, 240, 100, set, {legend: legend, legendpos: "west"});
+		r.g.piechart(240, 120, 100, set, {legend: legend, legendpos: "west"});
 	</script>
+	</section>
+	
 	<?php } ?>
 	</section>
 </body>
