@@ -22,7 +22,7 @@ if(!$err){
 <head>
 	<meta charset="utf-8">
 	
-	<title>Classification Results for <?php echo $url; ?></title>
+	<title><?php echo ucfirst($classifier);?> Classification Results</title>
 	
 	<!-- meta tags -->
 	<meta name="keywords" content="uClassify, classifier, classification, topics, text">
@@ -36,19 +36,19 @@ if(!$err){
 </head>
 <body>
 	<header id="main">
-		<h1>uClassify Classifier Results</h1>
+		<h1><?php echo ucfirst($classifier);?> Classification Results</h1>
 	</header>
 	
 	<section id="content">
 	
-	<?php if(!empty($json)):?>
+	<?php if(!empty($json)){?>
 	
-	<?php echo ucfirst($classifier); ?> classification for: <a href="<?php echo $url; ?>"><?php echo $url; ?></a>
+	<p>URL: <a href="<?php echo $url; ?>"><?php echo "{$url}"; ?></a></p>
 	
 	<script>
 		var data = <?php echo $json; ?>;
 
-		// Creates canvas 640 × 480 at 0, 0
+		// Creates canvas 640 ï¿½ 480 at 0, 0
 		var r = Raphael(0, 0, 640, 480);
 		// Creates pie chart at with center at 320, 200,
 		// radius 100 and data from the classification
@@ -64,7 +64,7 @@ if(!$err){
 		
 		r.g.piechart(240, 240, 100, set, {legend: legend, legendpos: "west"});
 	</script>
-	<?php endif; ?>
+	<?php } ?>
 	</section>
 </body>
 </html>
