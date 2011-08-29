@@ -15,13 +15,14 @@
 class uClassify {
 	
 	// private properties
-	private $baseUrl = 'http://uclassify.com/browse/uClassify/';
-	private $readkey = '***YOUR_READ_KEY***'; // <- your read key here
+	private $baseUrl = 'http://uclassify.com/browse/';
+	private $provider = "uClassify";
+	private $readkey = 'vhSVEuFSAZXrYxkCj3oxXN0TI+E='; //***YOUR_READ_KEY***'; 
 	private $removeHTML = 1;
 	private $encoding = 'json';
-	private $version = '1.01';
+	private $version = '1';
 	private $classifier = "topics"; // default to topics command
-	private $classifier_whitelist = array("topics","text language","sentiment","mood","ageanalyzer","tonality");
+	private $classifier_whitelist = array("topics","sentiment","ageanalyzer");
 	
 	// Class methods
     public function __construct()  {  
@@ -86,7 +87,7 @@ class uClassify {
 	// classify a URL & return the scored classification
 	public function classifyUrl($url) {
 		// assemble the query string
-		$qs = $this->baseUrl.ucfirst($this->classifier).'/ClassifyUrl/?readkey='.urlencode($this->readkey).
+		$qs = $this->baseUrl.$this->provider."/".ucwords($this->classifier).'/ClassifyUrl/?readkey='.urlencode($this->readkey).
 				'&url='.urlencode($url).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding."&version=".$this->version;
 		
 		// instantiate cUrl
