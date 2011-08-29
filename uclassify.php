@@ -17,10 +17,10 @@ class uClassify {
 	// private properties
 	private $baseUrl = 'http://uclassify.com/browse/';
 	private $provider = "uClassify";
-	private $readkey = '***YOUR_READ_KEY***'; 
+	private $readkey = '***YOUR_READ_KEY***';
 	private $removeHTML = 1;
 	private $encoding = 'json';
-	private $version = '1';
+	private $version = '1.01';
 	private $classifier = "topics"; // default to topics command
 	private $classifier_whitelist = array("topics","sentiment","ageanalyzer");
 	
@@ -108,7 +108,7 @@ class uClassify {
 	// classify some text & return the scored classification
 	public function classifyText($txt) {
 		// assemble the query string
-		$qs = $this->baseUrl.ucfirst($this->classifier).'/ClassifyText/?readkey='.urlencode($this->readkey).
+		$qs = $this->baseUrl.$this->provider."/".ucwords($this->classifier).'/ClassifyText/?readkey='.urlencode($this->readkey).
 					'&text='.urlencode($url).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding."&version=".$this->version;
 	
 		// instantiate cUrl
