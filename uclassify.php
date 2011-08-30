@@ -17,12 +17,17 @@ class uClassify {
 	// private properties
 	private $baseUrl = 'http://uclassify.com/browse/';
 	private $provider = "uClassify";
-	private $readkey = '***YOUR_READ_KEY***';
+	private $readkey = 'vhSVEuFSAZXrYxkCj3oxXN0TI+E='; //***YOUR_READ_KEY***';
 	private $removeHTML = 1;
 	private $encoding = 'json';
 	private $version = '1.01';
 	private $classifier = "topics"; // default to topics command
-	private $classifier_whitelist = array("topics","sentiment","ageanalyzer");
+	private $classifier_whitelist = array(	'text language'=>'uClassify',
+											'topics'=>'uClassify',
+											'sentiment'=>'uClassify',
+											'ageanalyzer'=>'uClassify',
+											'mood'=>'prfekt',
+											'genderanalyzer_v5'=>'uClassify');
 	
 	// Class methods
     public function __construct()  {  
@@ -71,8 +76,9 @@ class uClassify {
 	
 	//set the classifier
 	public function setClassifier($c){
-		if(in_array($c,$this->classifier_whitelist)){
+		if(array_key_exists(strtolower($c),$this->classifier_whitelist)){
 			$this->classifier = $c;
+			$this->provider = $this->classifier_whitelist[$c];
 			return 0;
 		} else {
 			return -1;
@@ -87,7 +93,7 @@ class uClassify {
 	// classify a URL & return the scored classification
 	public function classifyUrl($url) {
 		// assemble the query string
-		$qs = $this->baseUrl.$this->provider."/".ucwords($this->classifier).'/ClassifyUrl/?readkey='.urlencode($this->readkey).
+		$qs = $this->baseUrl.$this->provider."/".str_replace(' ','%20',$this->classifier).'/ClassifyUrl/?readkey='.urlencode($this->readkey).
 				'&url='.urlencode($url).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding."&version=".$this->version;
 		
 		// instantiate cUrl
@@ -122,7 +128,7 @@ class uClassify {
 		$data = curl_exec($curl);
 	
 		curl_close($curl);
-	
+		
 		return $data;
 	}
 }
