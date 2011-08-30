@@ -2,7 +2,7 @@
 /**
 * A PHP5 uClassify URL API Wrapper Class
 *
-* Encapsulates the uClassify URL URL API 
+* Encapsulates the uClassify URL API 
 * see http://uclassify.com/UrlApiDocumentation.aspx 
 *
 * Requires a uClassify read key which you can get from uClassify.com 
