@@ -17,7 +17,7 @@ class uClassify {
 	// private properties
 	private $baseUrl = 'http://uclassify.com/browse/';
 	private $provider = "uClassify";
-	private $readkey = '***YOUR_READ_KEY***';
+	private $readkey = 'vhSVEuFSAZXrYxkCj3oxXN0TI+E=';//'***YOUR_READ_KEY***';
 	private $removeHTML = 1;
 	private $encoding = 'json';
 	private $version = '1.01';

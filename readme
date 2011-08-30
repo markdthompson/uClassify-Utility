@@ -1,8 +1,8 @@
-uClassify Text Classifier Bookmarklet
+uClassify URL API Wrapper Class
 
 Description:
 
-A quick sketch bookmarklet that uses the uClassify free text classifier web service ( http://www.uclassify.com/ ) so you can classify web pages as you view them. Still rough, it just spits out the xml results. At some point I'll add a visualization and streamline the usability.
+A PHP5 wrapper class for the uClassify free text classifier web service ( http://www.uclassify.com/ ). Implements both ClassifyUrl & ClassifyText methods and supports both json & xml output of all the uClassify & prfekt classifiers.
 
 
 Demo:
