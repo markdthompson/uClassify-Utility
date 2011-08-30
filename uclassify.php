@@ -1,12 +1,11 @@
 <?php
 /**
-* This a lightweight uClassify RESTish API php wrapper class
+* A PHP5 uClassify URL API Wrapper Class
 *
-* Encapsulates a subset of the uClassify URL RESTish API 
+* Encapsulates the uClassify URL URL API 
 * see http://uclassify.com/UrlApiDocumentation.aspx 
 *
-* Be sure to sign up with uClassify to get your read key 
-* and replace '***YOUR_READ_KEY***' with your own read key.
+* Requires a uClassify read key which you can get from uClassify.com 
 *
 * @author Mark Thompson <mark@smithandthompson.net>
 *
