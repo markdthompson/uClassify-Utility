@@ -17,17 +17,33 @@ class uClassify {
 	// private properties
 	private $baseUrl = 'http://uclassify.com/browse/';
 	private $provider = "uClassify";
-	private $readkey = '***YOUR_READ_KEY***';
+	private $readkey = 'vhSVEuFSAZXrYxkCj3oxXN0TI+E=';//***YOUR_READ_KEY***';
 	private $removeHTML = 1;
 	private $encoding = 'json';
 	private $version = '1.01';
 	private $classifier = "topics"; // default to topics command
-	private $classifier_whitelist = array(	'text language'=>'uClassify',
-											'topics'=>'uClassify',
+	private $classifier_whitelist = array(	'topics'=>'uClassify',
+											'society topics'=>'uClassify',
+											'home topics'=>'uClassify',
+											'art topics'=>'uClassify',
+											'game topics'=>'uClassify',
+											'health topics'=>'uClassify',
+											'computer topics'=>'uClassify',
+											'business topics'=>'uClassify',
+											'recreation topics'=>'uClassify',
+											'sport topics'=>'uClassify',
+											'science topics'=>'uClassify',
+											'text language'=>'uClassify',
 											'sentiment'=>'uClassify',
 											'ageanalyzer'=>'uClassify',
+											'genderanalyzer_v5'=>'uClassify',
+											'classics'=>'uClassify',
 											'mood'=>'prfekt',
-											'genderanalyzer_v5'=>'uClassify');
+											'tonality'=>'prfekt',
+											'myers briggs judging function'=>'prfekt',
+											'myers briggs lifestyle'=>'prfekt',
+											'myers briggs attitude'=>'prfekt',
+											'myers briggs perceiving function'=>'prfekt');
 	
 	// Class methods
     public function __construct()  {  

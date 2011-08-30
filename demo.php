@@ -63,7 +63,7 @@ function __autoload($class_name) {
 		var data = <?php echo $json; ?>;
 
 		// Creates canvas 540 � 480 at 0, 0
-		var r = Raphael(0, 150, 640, 480);
+		var r = Raphael(0, 75, 640, 480);
 		// Creates pie chart at with center at 320, 200,
 		// radius 100 and data from the classification
 		
@@ -76,7 +76,23 @@ function __autoload($class_name) {
 			i++;
 		}
 		
-		r.g.piechart(240, 100, 100, set, {legend: legend, legendpos: "west"});
+		var pie = r.g.piechart(320, 150, 70, set, {legend: legend, legendpos: "west"});
+
+		pie.hover(function () {
+            this.sector.stop();
+            this.sector.scale(1.1, 1.1, this.cx, this.cy);
+            if (this.label) {
+                this.label[0].stop();
+                this.label[0].scale(1.5);
+                this.label[1].attr({"font-weight": 800});
+            }
+        }, function () {
+            this.sector.animate({scale: [1, 1, this.cx, this.cy]}, 500, "bounce");
+            if (this.label) {
+                this.label[0].animate({scale: 1}, 500, "bounce");
+                this.label[1].attr({"font-weight": 400});
+            }
+        });
 	</script>
 	</section>
 	
