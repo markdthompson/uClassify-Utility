@@ -44,6 +44,6 @@
 'myers briggs attitude'=>'prfekt',
 'myers briggs perceiving function'=>'prfekt'
 -->	
-	<section>
+	</section>
 </body>
 </html>
