@@ -16,7 +16,7 @@ class uClassify {
 	// private properties
 	private $baseUrl = 'http://uclassify.com/browse/';
 	private $provider = "uClassify";
-	private $readkey = '***YOUR_READ_KEY***';
+	private $readkey = 'vhSVEuFSAZXrYxkCj3oxXN0TI+E=';
 	private $removeHTML = 1;
 	private $encoding = 'json';
 	private $version = '1.01';
@@ -77,7 +77,7 @@ class uClassify {
 	// set encoding
 	public function setEncoding($newEncoding) {
 		if($newEncoding == 'xml' || $newEncoding == 'json'){
-			$this->removeHTML = $newEncoding;
+			$this->encoding = $newEncoding;
 			return 0;
 		} else {
 			return -1;
