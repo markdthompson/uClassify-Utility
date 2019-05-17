@@ -14,7 +14,7 @@
 class uClassify {
 	
 	// private properties
-	private $baseUrl = 'http://uclassify.com/browse/';
+	private $baseUrl = 'https://uclassify.com/browse/';
 	private $provider = "uClassify";
 	private $readkey = '***YOUR_READ_KEY***';
 	private $removeHTML = 1;
