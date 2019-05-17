@@ -130,7 +130,7 @@ class uClassify {
 	public function classifyText($txt) {
 		// assemble the query string
 		$qs = $this->baseUrl.$this->provider."/".ucwords($this->classifier).'/ClassifyText/?readkey='.urlencode($this->readkey).
-					'&text='.urlencode($url).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding."&version=".$this->version;
+					'&text='.urlencode($txt).'&removeHtml='.$this->removeHTML.'&output='.$this->encoding."&version=".$this->version;
 	
 		// instantiate cUrl
 		$curl = curl_init($qs);
